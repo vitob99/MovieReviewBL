@@ -90,6 +90,7 @@ class Program
                     confirm_choice = false;
                     break;
                 case 3:
+                    exit = true;
                     break;
                 
             }
