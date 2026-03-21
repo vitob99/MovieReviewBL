@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rebox\\Desktop\\progetto\\MovieReviewServer\\MovieReviewServer.csproj": {}
+    "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rebox\\Desktop\\progetto\\MovieReviewServer\\MovieReviewServer.csproj": {
+    "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rebox\\Desktop\\progetto\\MovieReviewServer\\MovieReviewServer.csproj",
+        "projectUniqueName": "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj",
         "projectName": "MovieReviewServer",
-        "projectPath": "C:\\Users\\rebox\\Desktop\\progetto\\MovieReviewServer\\MovieReviewServer.csproj",
+        "projectPath": "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj",
         "packagesPath": "C:\\Users\\rebox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rebox\\Desktop\\progetto\\MovieReviewServer\\obj\\",
+        "outputPath": "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\rebox\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,15 +45,15 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[10.0.5, )"
+              "version": "[9.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -75,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
