@@ -5,7 +5,7 @@ public sealed class LogManager
 
     private List<string> log_list = new List<string>();
     
-
+    private LogManager(){}
 
     public static LogManager Instance
     {
