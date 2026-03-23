@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace MovieReview.Models;
 
@@ -29,4 +28,6 @@ class User
     [Required]
     [Column("registration_date")]
     public DateOnly RegistrationDate {get;set;} = DateOnly.FromDateTime(DateTime.Now);
+
+    public List<Review> user_reviews = new List<Review>();
 }

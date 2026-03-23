@@ -1,0 +1,59 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using MovieReview.Data;
+using Microsoft.Extensions.Logging;
+
+static class Server 
+{
+    public static WebApplication Start(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Logging.ClearProviders();
+        
+        string connectionString = "server=localhost;port=3306;database=movie_review_db;user=root;password=passwordsql";
+        builder.Services.AddDbContext<MovieReviewDbContext>(options => options.UseMySql(connectionString!, ServerVersion.AutoDetect(connectionString)));
+
+
+        
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+
+        builder.Services.AddSwaggerGen();
+
+        var app = builder.Build();
+
+        
+        using (var scope = app.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<MovieReviewDbContext>();
+
+            try
+            {
+                db.Database.EnsureCreated();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errore durante la migrazione: {ex.Message}");
+
+            }
+        }
+
+
+
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        app.UseHttpsRedirection();
+        app.MapControllers();
+        //app.Run();
+        app.StartAsync();
+        return app;
+    }
+
+    public static void Stop(WebApplication app)
+    {
+       app.StopAsync();
+    }
+
+    
+}

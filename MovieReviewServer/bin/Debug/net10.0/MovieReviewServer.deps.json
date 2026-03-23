@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "MovieReviewServer/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.0",
           "Pomelo.EntityFrameworkCore.MySql": "9.0.0",
           "Swashbuckle.AspNetCore": "10.1.5"
         },
