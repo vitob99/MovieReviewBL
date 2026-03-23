@@ -178,4 +178,24 @@ static class UserInterface
             }
         }while(back_button == false);
     }
+
+    public static void Error(bool status)
+    {
+        Console.Clear();
+        LogoAndStatus(status);
+        bool exit_button = false;
+        string error_text = "Errore, verificare le credenziali di accesso al database o le impostazioni del server!";
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(error_text.PadLeft((Console.WindowWidth + error_text.Length) / 2));
+        Console.ResetColor();
+
+        do
+        {
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            if(key.Key == ConsoleKey.Enter)
+            {
+                exit_button = true;
+            }
+        }while(exit_button == false);
+    }
 }

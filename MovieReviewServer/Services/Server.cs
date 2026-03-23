@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 
 static class Server 
 {
+
     public static WebApplication Start(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
