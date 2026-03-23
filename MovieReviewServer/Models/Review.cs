@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieReview.Models;
 
-class Review
+public class Review
 {
     public int UserId { get; set; }
     public User User { get; set; } = null!;

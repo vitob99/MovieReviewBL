@@ -11,6 +11,9 @@ class Program
     {
         Console.CursorVisible = false;
         WebApplication app = null!;
+
+      
+
         /* OK
             Models: Utente, Film, Attore, Recensione mappati
         */
@@ -38,6 +41,17 @@ class Program
         bool exit = false;
         int choice = 0;
 
+        try
+        {
+            app = Server.Start(args);
+            Server.Stop(app);
+        }
+        catch (Exception)
+        {
+            UserInterface.Error(server_status);
+            return;
+        }
+        
         //NAVIGAZIONE MENU
         do
         {
@@ -105,12 +119,11 @@ class Program
                             server_status = false;
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception)
                     {
                         server_status = false;
-                        Console.WriteLine(ex.Message);
-                        Console.ReadKey();
-                        //gestione errore avvio/arresto
+                        exit = true;
+                        UserInterface.Error(server_status);
                     }
 
                     confirm_choice = false;

@@ -3,7 +3,7 @@ using MovieReview.Models;
 
 namespace MovieReview.Data;
 
-class MovieReviewDbContext : DbContext
+public class MovieReviewDbContext : DbContext
 {
     public MovieReviewDbContext(DbContextOptions<MovieReviewDbContext> options) : base(options) { }
 
