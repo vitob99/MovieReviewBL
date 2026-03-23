@@ -28,5 +28,6 @@ static class Operation
     public static void RegisterUser(MovieReviewDbContext db, User user)
     {
         db.Users.Add(user);
+        db.SaveChanges();
     }
 }

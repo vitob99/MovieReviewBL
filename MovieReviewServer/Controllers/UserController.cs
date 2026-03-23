@@ -22,27 +22,33 @@ public class UserController : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<User>> CreateUser([FromBody] User user)
     {
-        Operation.RegisterUser(db, user);
-        await db.SaveChangesAsync();
+        bool name_email_exists = db.Users.Any(u => u.Username == user.Username || u.Email == user.Email);
+        if (name_email_exists)
+        {
+            return BadRequest("Errore: username o email già utilizzati!");
+        }
 
-        log_manager.AddLog("REGISTRAZIONE", $"L'utente {user.Username} si e' registrato!");
-        
-        return CreatedAtAction(nameof(CreateUser), new { id = user.UserId }, user);
+        Operation.RegisterUser(db, user);
+        log_manager.AddLog("REGISTRAZIONE", $"L'utente '{user.Username}' si e' appena registrato!");
+        return Ok("Utente creato");
     }
 
     
     [HttpPost("login")] 
-    public async Task<ActionResult<User>> Login(string username, string password)
+    public async Task<ActionResult<User>> Login(LoginRequest request) //usare una variabile LoginRequest mi evita di mostrare in chiaro username e password
     {
-        var user = db.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+        var user = db.Users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password); 
 
         if (user == null)
         {
-            return Unauthorized("Credenziali non valide, controlla il tuo username e/o la tua password!"); 
+            return Unauthorized("Credenziali non valide!"); 
         }
+        log_manager.AddLog("LOGIN", $"L'utente '{user.Username}' ha effettuato l'accesso!");
+        return Ok(user);
+    } 
+}
 
-
-        log_manager.AddLog("LOGIN", $"L'utente {user.Username} ha effettuato l'accesso!");
-        return Ok(user); 
-    }
+public class LoginRequest {
+    public string? Username { get; set; }
+    public string? Password { get; set; }
 }

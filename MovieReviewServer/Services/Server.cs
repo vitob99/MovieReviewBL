@@ -14,7 +14,7 @@ static class Server
         
         string connectionString = "server=localhost;port=3306;database=movie_review_db;user=root;password=passwordsql";
         builder.Services.AddDbContext<MovieReviewDbContext>(options => options.UseMySql(connectionString!, ServerVersion.AutoDetect(connectionString)));
-
+        builder.Services.AddSingleton(LogManager.Instance);
 
         
         builder.Services.AddControllers();
@@ -46,7 +46,6 @@ static class Server
         app.UseSwaggerUI();
         app.UseHttpsRedirection();
         app.MapControllers();
-        //app.Run();
         app.StartAsync();
         return app;
     }
