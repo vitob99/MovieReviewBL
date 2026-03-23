@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MovieReview.Models;
 
 [Table("users")]
-class User
+public class User
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]   

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieReview.Models;
 
-class Actor
+public class Actor
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]   

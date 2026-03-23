@@ -1,5 +1,5 @@
 
-sealed class LogManager
+public sealed class LogManager
 {
     private static LogManager? instance;
 

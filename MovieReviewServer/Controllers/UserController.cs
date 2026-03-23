@@ -8,7 +8,7 @@ namespace UserService.Controllers;
 
 [ApiController]
 [Route("user")]
-class UserController : ControllerBase
+public class UserController : ControllerBase
 {
     private readonly MovieReviewDbContext db;
     private readonly LogManager log_manager;
