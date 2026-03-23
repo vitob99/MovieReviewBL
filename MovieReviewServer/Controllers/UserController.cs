@@ -30,7 +30,7 @@ public class UserController : ControllerBase
 
         Operation.RegisterUser(db, user);
         log_manager.AddLog("REGISTRAZIONE", $"L'utente '{user.Username}' si e' appena registrato!");
-        return Ok("Utente creato");
+        return Ok(user);
     }
 
     
