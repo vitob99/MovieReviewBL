@@ -116,6 +116,7 @@ class Program
                         else
                         {
                             Server.Stop(app);
+                            LogManager.Instance.ClearLogs();
                             server_status = false;
                         }
                     }

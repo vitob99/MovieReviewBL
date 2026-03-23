@@ -37,4 +37,9 @@ public sealed class LogManager
     {
         return log_list.Count();
     }
+
+    public void ClearLogs()
+    {
+        log_list.Clear();
+    }
 }
