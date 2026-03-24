@@ -85,7 +85,7 @@ public class CheckInputLogin : MonoBehaviour
 
 
 
-                    //SceneManager.LoadScene(3); CARICO LA SCENA PRINCIPALE DOPO ESSERMI LOGGATO !!!!!!
+                    SceneManager.LoadScene(3); 
 
 
 

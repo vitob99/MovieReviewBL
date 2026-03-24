@@ -81,8 +81,7 @@ public class CheckInputRegister : MonoBehaviour
                 
 
 
-                //SceneManager.LoadScene(3); CARICO LA SCENA PRINCIPALE DOPO ESSERMI REGISTRATO !!!!!!
-
+                SceneManager.LoadScene(3);
 
 
             }
