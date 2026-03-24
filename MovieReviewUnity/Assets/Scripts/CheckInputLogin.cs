@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CheckInputEmpty : MonoBehaviour
+public class CheckInputLogin : MonoBehaviour
 {
     [SerializeField] private TMP_InputField input_username;
     [SerializeField] private TMP_InputField input_password;
