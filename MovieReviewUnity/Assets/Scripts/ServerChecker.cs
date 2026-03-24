@@ -14,7 +14,7 @@ public class ServerChecker : MonoBehaviour
     [SerializeField] private GameObject loading;
     [SerializeField] private RawImage retry_image;
 
-    private string url = "http://127.0.0.1:5000";
+    private const string URL = "http://127.0.0.1:5000";
 
     void Start()
     {
@@ -38,14 +38,14 @@ public class ServerChecker : MonoBehaviour
             yield return new WaitForSeconds(1f); 
 
             tries++;
-            using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+            using (UnityWebRequest webRequest = UnityWebRequest.Get(URL))
             {
                 yield return webRequest.SendWebRequest();
 
                 if (webRequest.result == UnityWebRequest.Result.ProtocolError)
                 {
                     text_error.color = Color.green;
-                    text_error.text = "Connessione al server riuscita...";
+                    text_error.text = "Connessione al server riuscita!";
                     yield return new WaitForSeconds(1f);
                     SceneManager.LoadScene(1);
                     connected = true;

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using MovieReview.Data;
 
@@ -29,7 +28,7 @@ class Program
 
         /*
             Info sistema: Utenti Registrati, Numero Film nel db, Numero attori nel db, Numero totale recensioni     OK
-            Log Sistema: singleton OK, !!fare instance add log nei controller!!
+            Log Sistema: singleton OK, !!fare instance add log nei controller!! OK
         */
         /*
             Implementare i Controller e le Operation

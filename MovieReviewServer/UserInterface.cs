@@ -1,4 +1,3 @@
-
 using MovieReview.Data;
 
 static class UserInterface

@@ -1,4 +1,3 @@
-
 using MovieReview.Data;
 using MovieReview.Models;
 

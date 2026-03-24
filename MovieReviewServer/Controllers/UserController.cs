@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieReview.Data;
 using MovieReview.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace UserService.Controllers;
 
@@ -46,6 +45,13 @@ public class UserController : ControllerBase
         log_manager.AddLog("LOGIN", $"L'utente '{user.Username}' ha effettuato l'accesso!");
         return Ok(user);
     } 
+
+    // [HttpGet("logout")] 
+    // public async Task<ActionResult<User>> Logout() 
+    // {
+    //     //DA IMPLEMENTARE
+    // } 
+    
 }
 
 public class LoginRequest {
