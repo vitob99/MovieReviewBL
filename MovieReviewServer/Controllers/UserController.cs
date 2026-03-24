@@ -24,7 +24,7 @@ public class UserController : ControllerBase
         bool name_email_exists = db.Users.Any(u => u.Username == user.Username || u.Email == user.Email);
         if (name_email_exists)
         {
-            return BadRequest("Errore: username o email già utilizzati!");
+            return Conflict("Errore: username o email già utilizzati!");
         }
 
         Operation.RegisterUser(db, user);
@@ -33,7 +33,7 @@ public class UserController : ControllerBase
     }
 
     
-    [HttpPost("login")] 
+    [HttpGet("login")] 
     public async Task<ActionResult<User>> Login([FromBody] LoginRequest request) //usare una variabile LoginRequest mi evita di mostrare in chiaro username e password
     {
         var user = db.Users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password); 
@@ -51,7 +51,7 @@ public class UserController : ControllerBase
     // {
     //     //DA IMPLEMENTARE
     // } 
-    
+
 }
 
 public class LoginRequest {

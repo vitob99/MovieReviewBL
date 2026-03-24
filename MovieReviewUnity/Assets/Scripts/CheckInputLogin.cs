@@ -67,7 +67,7 @@ public class CheckInputLogin : MonoBehaviour
 
         IEnumerator SendRequest(string url, string json)
         {
-            using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+            using (UnityWebRequest request = new UnityWebRequest(url, "GET"))
             {
                 byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
                 request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -82,7 +82,14 @@ public class CheckInputLogin : MonoBehaviour
                     text_error.text = $"Benvenuto, '{input_username.text}'";
                     yield return new WaitForSeconds(0.5f);
 
-                    //APRI LA SCENA DELL'UTENTE LOGGATO... SceneManager.LoadScene(3);
+
+
+
+                    //SceneManager.LoadScene(3); CARICO LA SCENA PRINCIPALE DOPO ESSERMI LOGGATO !!!!!!
+
+
+
+                    
                 }
                 else if(request.result == UnityWebRequest.Result.ConnectionError)
                 {
