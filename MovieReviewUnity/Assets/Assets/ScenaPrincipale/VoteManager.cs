@@ -7,6 +7,13 @@ public class VoteManager : MonoBehaviour
     [SerializeField] private Color activeColor = Color.yellow;
     [SerializeField] private Color inactiveColor = Color.gray;
 
+    public void Start()
+    {
+        foreach (var item in stars)
+        {
+            item.color = inactiveColor;
+        }
+    }
     public void Vote(int value)
     {
         for (int i = 0; i < stars.Length; i++)
