@@ -23,5 +23,10 @@ public class Film
     [Column("genre")]
     public string? Genre{ get; set; }
 
+    [Required]
+    [Column("poster_link")]
+    public string? poster_link{ get; set; }
+
+
     public List<Actor> Actors { get; set; } = new List<Actor>();
 }

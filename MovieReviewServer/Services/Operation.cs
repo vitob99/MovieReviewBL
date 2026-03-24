@@ -30,4 +30,9 @@ static class Operation
         db.Users.Add(user);
         db.SaveChanges();
     }
+
+    public static List<Film> GetFilms(MovieReviewDbContext db)
+    {
+        return db.Films.ToList();
+    }
 }

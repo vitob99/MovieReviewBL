@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieReview.Data;
 using MovieReview.Models;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace UserService.Controllers;
 

@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Logout : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Button button_logout;
     void Start()
     {
-        
+        button_logout.onClick.AddListener(LogOut);
     }
 
-    // Update is called once per frame
-    void Update()
+    void LogOut()
     {
-        
+        SceneManager.LoadScene(1);
     }
+    
 }
