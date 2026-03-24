@@ -14,8 +14,6 @@ public class ServerChecker : MonoBehaviour
     [SerializeField] private GameObject loading;
     [SerializeField] private RawImage retry_image;
 
-    private Animator anim;
-
     private string url = "http://127.0.0.1:5000";
 
     void Start()
@@ -39,7 +37,6 @@ public class ServerChecker : MonoBehaviour
             text_error.text = "Connessione al server in corso...";
             yield return new WaitForSeconds(1f); 
 
-            Debug.Log("Tentativo di connessione...");
             tries++;
             using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
             {
@@ -58,7 +55,7 @@ public class ServerChecker : MonoBehaviour
                     if(tries < MAX_TRIES)
                     {
                         text_error.color = Color.orange;
-                        text_error.text = "Impossibile raggiungere il server, nuovo tentativo in corso...";
+                        text_error.text = "Impossibile raggiungere il server, eseguo un nuovo tentativo...";
                         yield return new WaitForSeconds(2f); 
                     }
                 }
