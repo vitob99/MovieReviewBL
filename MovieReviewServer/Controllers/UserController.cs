@@ -34,7 +34,7 @@ public class UserController : ControllerBase
     }
 
     
-    [HttpPost("login")] 
+    [HttpGet("login")] 
     public async Task<ActionResult<User>> Login([FromBody] LoginRequest request) //usare una variabile LoginRequest mi evita di mostrare in chiaro username e password
     {
         var user = db.Users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password); 
