@@ -35,4 +35,15 @@ static class Operation
     {
         return db.Films.ToList();
     }
+
+    public static float GetAvarageRating(MovieReviewDbContext db, int film_id)
+    {
+        var filmReviews = db.Reviews.Where(r => r.FilmId == film_id);
+        if (!filmReviews.Any())
+        {
+            return 0f;
+        }
+
+        return (float)filmReviews.Average(r => r.Rating);
+    }
 }

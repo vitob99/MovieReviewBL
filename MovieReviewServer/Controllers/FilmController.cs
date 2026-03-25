@@ -20,4 +20,10 @@ public class FilmController: ControllerBase
     {
         return Ok(Operation.GetFilms(db));
     }
+
+    [HttpGet("average/{film_id}")]
+    public async Task<ActionResult<Film>> GetAverageRating(int film_id)
+    {
+        return Ok(Operation.GetAvarageRating(db, film_id));
+    }
 }
