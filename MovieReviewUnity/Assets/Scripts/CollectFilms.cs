@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using UnityEditor.Media;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CollectFilms : MonoBehaviour
 {
     private static List<Film> FilmList = new List<Film>();
     private static int index_list_film  = 0;
-    private static int id_film_current;
+    private int id_film_current;
 
     [SerializeField] private TextMeshProUGUI text_title;
     [SerializeField] private TextMeshProUGUI text_genre;
@@ -27,6 +24,13 @@ public class CollectFilms : MonoBehaviour
     
     [SerializeField] private Button button_left;
     [SerializeField] private Button button_right;
+
+    [SerializeField] private GameObject stars;
+    [SerializeField] private TMP_InputField short_review_input;
+    [SerializeField] private TextMeshProUGUI text_error_vote;
+    [SerializeField] private TextMeshProUGUI text_success_vote;
+    [SerializeField] private Button button_send_vote;
+
     private const string FILM_URL = "http://127.0.0.1:5000/film";
     
     
@@ -43,9 +47,27 @@ public class CollectFilms : MonoBehaviour
         int movement_index = index_list_film + direction;
 
         if (movement_index >= 0 && movement_index < FilmList.Count)
-        {
+        {   
+            
+            
+            text_error_vote.text = "";
+            text_success_vote.gameObject.SetActive(false);
+            button_send_vote.gameObject.SetActive(true);
+            DisableStars(stars);
+
+
             index_list_film = movement_index;
+
+
             UpdateFilmInfo(index_list_film);
+        }
+    }
+    public void DisableStars(GameObject stars)
+    {
+        foreach (Transform s in stars.transform)
+        {
+            Image star = s.GetComponent<Image>();
+            star.color = Color.gray;
         }
     }
 
@@ -108,7 +130,6 @@ public class CollectFilms : MonoBehaviour
     IEnumerator AverageRating(int id_film_current)
     {
         string url = $"http://127.0.0.1:5000/film/average/{id_film_current}";
-        Debug.Log("Media per film con id " + id_film_current);
         
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -121,8 +142,6 @@ public class CollectFilms : MonoBehaviour
                 
                 if (float.TryParse(resultText, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out float average))
                 {
-                        Debug.Log("Media: " + (int)average);
-
                         switch ((int)average)
                         {
                             case 1:
@@ -165,13 +184,15 @@ public class CollectFilms : MonoBehaviour
             }
             else
             {
-                //errore
-                Debug.Log("errore");
+                Debug.Log("ERRORE");
             }
         }
     }
 
-
+    public int getCurrentFilmId()
+    {
+        return id_film_current;
+    }
 }
 [System.Serializable]
 public class Film

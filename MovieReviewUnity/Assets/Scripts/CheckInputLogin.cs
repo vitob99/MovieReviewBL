@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Text;
 using TMPro;
@@ -77,19 +76,14 @@ public class CheckInputLogin : MonoBehaviour
 
                 if (request.result == UnityWebRequest.Result.Success)
                 {
-                    // scena principale da loggato
                     text_error.color = Color.green;
                     text_error.text = $"Benvenuto, '{input_username.text}'";
                     yield return new WaitForSeconds(0.5f);
-
-
-
+     
+                    LoginUser logged_user = JsonUtility.FromJson<LoginUser>(request.downloadHandler.text);
+                    LoggedUserSingleton.Instance.setLoggedUser(logged_user);
 
                     SceneManager.LoadScene(3); 
-
-
-
-                    
                 }
                 else if(request.result == UnityWebRequest.Result.ConnectionError)
                 {
@@ -105,3 +99,19 @@ public class CheckInputLogin : MonoBehaviour
 
     }
 }
+public class LoginRequest
+{
+    public string username;
+    public string password;
+}
+
+[System.Serializable]
+public class LoginUser
+{
+    public int userId;
+    public string username;
+    public string email;
+    public string password;
+    public string registrationDate;
+}
+

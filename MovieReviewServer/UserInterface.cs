@@ -1,7 +1,7 @@
-
+using MovieReview.Services;
 using MovieReview.Data;
 
-static class UserInterface
+static class UserInterface //implementa tutte le funzioni volte a gestire la parte "grafica" 
 {
     private static void LogoAndStatus(bool status)
     {

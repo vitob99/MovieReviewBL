@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using MovieReview.Data;
+using MovieReview.Services;
 
 class Program
 {
@@ -10,37 +10,14 @@ class Program
     public static void Main(string[] args)
     {
         Console.CursorVisible = false;
-        WebApplication app = null!;
-
-      
-
-        /* OK
-            Models: Utente, Film, Attore, Recensione mappati
-        */
-
-        /* OK
-        [TITOLO] - Server status: ONLINE in verde oppure OFFLINE in rosso a seconda se avviato o no
-        - Avvia Server che diventerà Arresta Server quando avviato
-        - Info Sistema (oscurato e non selezionabile se il server non e' avviato)
-        - Log Sistema (oscurato e non selezionabile se il server non e' avviato)
-        - Info Progetto
-        - Esci
-        */
-
-        /*
-            Info sistema: Utenti Registrati, Numero Film nel db, Numero attori nel db, Numero totale recensioni     OK
-            Log Sistema: singleton OK, !!fare instance add log nei controller!!
-        */
-        /*
-            Implementare i Controller e le Operation
-        */
-
+        WebApplication app;
 
         bool server_status = false;
         bool confirm_choice = false;
         bool exit = false;
         int choice = 0;
 
+        //Check iniziale se il server è avviabile
         try
         {
             app = Server.Start(args);
@@ -52,7 +29,8 @@ class Program
             return;
         }
         
-        //NAVIGAZIONE MENU
+
+        //Menù di navigazione
         do
         {
             UserInterface.MainMenu(choice, server_status);
@@ -102,7 +80,7 @@ class Program
 
 
 
-            //CONTROLLO LA SCELTA 
+            //Controllo la scelta post conferma
             switch (choice)
             {
                 case 0: //Caso avvia o arresta server
@@ -131,7 +109,6 @@ class Program
                     break;
 
                 case 1: //caso info sistema
-                    //apre e chiude 
                     using (var scope = app.Services.CreateScope())
                     {
                         var tempDb = scope.ServiceProvider.GetRequiredService<MovieReviewDbContext>();
@@ -152,7 +129,6 @@ class Program
                 case 4:  //caso esci
                     exit = true;
                     break;
-                
             }
         }while(exit == false);
     }

@@ -1,9 +1,9 @@
-
 using MovieReview.Data;
 using MovieReview.Models;
 
+namespace MovieReview.Services;
 
-static class Operation
+static class Operation //implementa le operazione utili a ottenere informazioni dal database
 {
     public static int GetUserCount(MovieReviewDbContext db)
     {
@@ -45,5 +45,22 @@ static class Operation
         }
 
         return (float)filmReviews.Average(r => r.Rating);
+    }
+
+    public static void PostReview(MovieReviewDbContext db, Review review)
+    {
+        var existingReview = db.Reviews.FirstOrDefault(r => r.UserId == review.UserId && r.FilmId == review.FilmId);
+
+        if (existingReview != null)
+        {
+            existingReview.Rating = review.Rating;
+            existingReview.ShortReview = review.ShortReview;
+        }
+        else
+        {
+        
+            db.Reviews.Add(review);
+        }
+        db.SaveChanges();
     }
 }

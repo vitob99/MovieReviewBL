@@ -6,10 +6,10 @@ namespace MovieReview.Models;
 public class Review
 {
     public int UserId { get; set; }
-    public User User { get; set; } = null!;
+    public User? User { get; set; }
 
     public int FilmId { get; set; }
-    public Film Film { get; set; } = null!;
+    public Film? Film { get; set; }
 
     [Required]
     [Column("rating")]

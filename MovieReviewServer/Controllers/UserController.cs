@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieReview.Data;
 using MovieReview.Models;
-
+using MovieReview.Services;
 
 namespace UserService.Controllers;
-
 
 [ApiController]
 [Route("user")]
@@ -19,7 +18,7 @@ public class UserController : ControllerBase
         this.log_manager = log_manager;
     }
 
-    [HttpPost("register")]
+    [HttpPost("register")] 
     public async Task<ActionResult<User>> CreateUser([FromBody] User user)
     {
         bool name_email_exists = db.Users.Any(u => u.Username == user.Username || u.Email == user.Email);

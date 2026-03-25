@@ -1,5 +1,7 @@
 
-public sealed class LogManager
+namespace MovieReview.Services;
+
+public sealed class LogManager //Sigleton che gestisce i log
 {
     private static LogManager? instance;
 

@@ -4,15 +4,16 @@ using Microsoft.EntityFrameworkCore;
 using MovieReview.Data;
 using Microsoft.Extensions.Logging;
 
-static class Server 
-{
+namespace MovieReview.Services;
 
+static class Server //gestisce l'inizializzazione, l'avvio e l'arresto del server rest ASP.net
+{
     public static WebApplication Start(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
         builder.Logging.ClearProviders();
         
-        string connectionString = "server=localhost;port=3306;database=movie_review_db;user=root;password=passwordsql";
+        string connectionString = "server=localhost;port=3306;database=movie_review_db;user=root;password=passwordsql"; //! non dovrebbe essere hard coded
         builder.Services.AddDbContext<MovieReviewDbContext>(options => options.UseMySql(connectionString!, ServerVersion.AutoDetect(connectionString)));
         builder.Services.AddSingleton(LogManager.Instance);
 
@@ -40,8 +41,6 @@ static class Server
             }
         }
 
-
-
         app.UseSwagger();
         app.UseSwaggerUI();
         app.UseHttpsRedirection();
@@ -54,6 +53,4 @@ static class Server
     {
        app.StopAsync();
     }
-
-    
 }
