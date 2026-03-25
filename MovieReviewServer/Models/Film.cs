@@ -24,6 +24,10 @@ public class Film
     public string? Genre{ get; set; }
 
     [Required]
+    [Column("producer")]
+    public string? Producer{ get; set; }
+
+    [Required]
     [Column("poster_link")]
     public string? poster_link{ get; set; }
 

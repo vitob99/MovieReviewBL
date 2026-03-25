@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Text;
 using TMPro;
@@ -57,7 +56,7 @@ public class CheckInputRegister : MonoBehaviour
 
 
             //GESTIONE RICHIESTA DI REGISTRAZIONE
-            User registration_data = new User { Username = input_username.text, Email = input_email.text, Password = input_password.text};
+            RegisterUser registration_data = new RegisterUser { Username = input_username.text, Email = input_email.text, Password = input_password.text};
             StartCoroutine(SendRegisterRequest(REGISTER_URL, JsonUtility.ToJson(registration_data)));
         }
     }
@@ -74,16 +73,14 @@ public class CheckInputRegister : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-                //utente registrato
                 text_error.color = Color.green;
                 text_error.text = "Ti sei registrato con successo!";
                 yield return new WaitForSeconds(0.5f);
                 
 
-
+                LoginUser logged_user = JsonUtility.FromJson<LoginUser>(request.downloadHandler.text);
+                LoggedUserSingleton.Instance.setLoggedUser(logged_user);
                 SceneManager.LoadScene(3);
-
-
             }
             else if(request.result == UnityWebRequest.Result.ConnectionError)
             {
@@ -100,7 +97,7 @@ public class CheckInputRegister : MonoBehaviour
 
 }
 
-class User
+class RegisterUser
 {
     public string Username;
     public string Email;
