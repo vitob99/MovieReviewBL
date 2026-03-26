@@ -1144,32 +1144,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rebox\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Marco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj",
+      "projectUniqueName": "C:\\Users\\Marco\\Documents\\GitHub\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj",
       "projectName": "MovieReviewServer",
-      "projectPath": "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj",
-      "packagesPath": "C:\\Users\\rebox\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rebox\\Desktop\\MovieReviewBL\\MovieReviewServer\\obj\\",
+      "projectPath": "C:\\Users\\Marco\\Documents\\GitHub\\MovieReviewBL\\MovieReviewServer\\MovieReviewServer.csproj",
+      "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Marco\\Documents\\GitHub\\MovieReviewBL\\MovieReviewServer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rebox\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1188,7 +1180,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -1223,7 +1215,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

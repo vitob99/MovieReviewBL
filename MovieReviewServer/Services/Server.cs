@@ -13,7 +13,7 @@ static class Server //gestisce l'inizializzazione, l'avvio e l'arresto del serve
         var builder = WebApplication.CreateBuilder(args);
         builder.Logging.ClearProviders();
         
-        string connectionString = "server=localhost;port=3306;database=movie_review_db;user=root;password=passwordsql"; //! non dovrebbe essere hard coded
+        string connectionString = "server=localhost;port=3306;database=movie_review_db;user=root;password=Milan1997."; //! non dovrebbe essere hard coded
         builder.Services.AddDbContext<MovieReviewDbContext>(options => options.UseMySql(connectionString!, ServerVersion.AutoDetect(connectionString)));
         builder.Services.AddSingleton(LogManager.Instance);
 
