@@ -43,4 +43,4 @@ Il progetto è attualmente un prototipo funzionale, ma presenta alcuni punti cri
 ## 🚀 Configurazione iniziale 
 1.  **Configurazione DB:** Configura il tuo server MySQL e aggiorna la stringa di connessione in Entity Framework.
 2.  **Server:** Avvia il progetto Console C# per mettere in ascolto il server
-3.  **Client:** Apri il progetto Unity e avvia la scena di "Chec" per la connessione al server
+3.  **Client:** Apri il progetto Unity e avvia la scena di "Check" per la connessione al server
