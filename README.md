@@ -1,4 +1,4 @@
-# Movie Review Project
+# Movie Review BL
 
 **Movie Review** è una piattaforma che consente agli utenti di registrarsi, autenticarsi e recensire i propri film preferiti. Il progetto nasce con l'obiettivo di integrare un backend solido in C# con un'interfaccia grafica interattiva sviluppata in Unity.
 
