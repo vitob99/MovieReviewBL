@@ -1,6 +1,8 @@
-*.shader linguist-language=HLSL
+*.shader linguist-vendored=true
 *.mat linguist-vendored=true
 *.asset linguist-vendored=true
 *.meta linguist-vendored=true
 *.unity linguist-vendored=true
 *.prefab linguist-vendored=true
+*.hlsl linguist-vendored=true
+*.cginc linguist-vendored=true
